@@ -1,6 +1,6 @@
 deps:
-	pip install -r requirements; 
-	pip install -r test requirements; 
+	pip install -r requirements.txt; 
+	pip install -r test requirements.txt 
 lint:
 	flake8 hello_world test
 run:
