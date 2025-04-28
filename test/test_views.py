@@ -10,9 +10,9 @@ class FlaskrTestCase(unittest.TestCase):
         self.app = app.test_client()
 
     def test_outputs(self):
-        rv = self.app.get('/outputs')
-        s = str(rv.data)
-        self.assertIn(','.join(SUPPORTED), s)
+    rv = self.app.get('/outputs')
+    s = rv.data.decode('utf-8')  # Decode the bytes to string
+    self.assertIn(', '.join(SUPPORTED), s)  # Adjusted for spacing
 
     def test_msg_with_output(self):
         rv = self.app.get('/?output=json')
